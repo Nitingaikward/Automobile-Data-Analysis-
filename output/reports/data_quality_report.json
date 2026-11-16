@@ -1,0 +1,106 @@
+{
+    "original_shape": {
+        "rows": 8128,
+        "columns": 13
+    },
+    "missing_values": {
+        "name": {
+            "count": 0,
+            "percentage": 0.0
+        },
+        "year": {
+            "count": 0,
+            "percentage": 0.0
+        },
+        "selling_price": {
+            "count": 0,
+            "percentage": 0.0
+        },
+        "km_driven": {
+            "count": 0,
+            "percentage": 0.0
+        },
+        "fuel": {
+            "count": 0,
+            "percentage": 0.0
+        },
+        "seller_type": {
+            "count": 0,
+            "percentage": 0.0
+        },
+        "transmission": {
+            "count": 0,
+            "percentage": 0.0
+        },
+        "owner": {
+            "count": 0,
+            "percentage": 0.0
+        },
+        "mileage": {
+            "count": 221,
+            "percentage": 2.72
+        },
+        "engine": {
+            "count": 221,
+            "percentage": 2.72
+        },
+        "max_power": {
+            "count": 215,
+            "percentage": 2.65
+        },
+        "torque": {
+            "count": 222,
+            "percentage": 2.73
+        },
+        "seats": {
+            "count": 221,
+            "percentage": 2.72
+        }
+    },
+    "duplicates": {
+        "count": 1202,
+        "percentage": 14.79
+    },
+    "categorical_integrity": {},
+    "numeric_text_columns": {},
+    "suspicious_values": {},
+    "outliers_iqr": {
+        "year": {
+            "q1": 2011.0,
+            "q3": 2017.0,
+            "iqr": 6.0,
+            "lower_bound": 2002.0,
+            "upper_bound": 2026.0,
+            "outlier_count": 81,
+            "outlier_percentage": 1.0
+        },
+        "selling_price": {
+            "q1": 254999.0,
+            "q3": 675000.0,
+            "iqr": 420001.0,
+            "lower_bound": -375002.5,
+            "upper_bound": 1305001.5,
+            "outlier_count": 600,
+            "outlier_percentage": 7.38
+        },
+        "km_driven": {
+            "q1": 35000.0,
+            "q3": 98000.0,
+            "iqr": 63000.0,
+            "lower_bound": -59500.0,
+            "upper_bound": 192500.0,
+            "outlier_count": 170,
+            "outlier_percentage": 2.09
+        },
+        "seats": {
+            "q1": 5.0,
+            "q3": 5.0,
+            "iqr": 0.0,
+            "lower_bound": 5.0,
+            "upper_bound": 5.0,
+            "outlier_count": 1653,
+            "outlier_percentage": 20.91
+        }
+    },
+    "summary_verdict": {}
+}

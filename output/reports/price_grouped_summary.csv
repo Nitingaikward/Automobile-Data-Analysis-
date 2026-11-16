@@ -1,0 +1,22 @@
+Grouping_Variable,Category,Vehicle_Count,Mean_Price_INR,Median_Price_INR
+transmission,Automatic,575,1322916.5,850000.0
+transmission,Manual,6142,451816.63,400000.0
+fuel,CNG,51,317666.61,330000.0
+fuel,Diesel,3658,647996.11,525000.0
+fuel,LPG,35,210885.71,200000.0
+fuel,Petrol,2973,384050.78,320000.0
+owner,First Owner,4176,620511.37,500000.0
+owner,Fourth & Above Owner,155,231970.92,185000.0
+owner,Second Owner,1888,393886.27,320000.0
+owner,Test Drive Car,5,4403800.0,5923000.0
+owner,Third Owner,493,289751.55,229999.0
+top_brand,Toyota,324,948354.87,750000.0
+top_brand,Mahindra,709,623684.02,570000.0
+top_brand,Honda,361,574460.21,560000.0
+top_brand,Ford,353,508161.43,450000.0
+top_brand,Hyundai,1214,466601.69,425000.0
+top_brand,Volkswagen,173,479976.86,420000.0
+top_brand,Renault,206,449694.14,395000.0
+top_brand,Maruti,2089,393974.54,350000.0
+top_brand,Tata,633,348941.4,265000.0
+top_brand,Chevrolet,216,268349.63,220000.0

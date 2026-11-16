@@ -1,0 +1,381 @@
+{
+    "metadata": {
+        "dataset_rows": 6717,
+        "analyzed_numerical_features": 8,
+        "numerical_features_list": [
+            "year",
+            "selling_price",
+            "km_driven",
+            "seats",
+            "mileage_kmpl",
+            "engine_cc",
+            "max_power_bhp",
+            "torque_nm"
+        ],
+        "correlation_method": "Pearson Linear Correlation"
+    },
+    "excluded_features": [],
+    "correlation_matrix": {
+        "year": {
+            "year": 1.0,
+            "selling_price": 0.4273,
+            "km_driven": -0.3879,
+            "seats": 0.025,
+            "mileage_kmpl": 0.3718,
+            "engine_cc": -0.0198,
+            "max_power_bhp": 0.1599,
+            "torque_nm": 0.1392
+        },
+        "selling_price": {
+            "year": 0.4273,
+            "selling_price": 1.0,
+            "km_driven": -0.1613,
+            "seats": 0.1585,
+            "mileage_kmpl": -0.11,
+            "engine_cc": 0.4428,
+            "max_power_bhp": 0.6923,
+            "torque_nm": 0.6217
+        },
+        "km_driven": {
+            "year": -0.3879,
+            "selling_price": -0.1613,
+            "km_driven": 1.0,
+            "seats": 0.2079,
+            "mileage_kmpl": -0.2037,
+            "engine_cc": 0.2535,
+            "max_power_bhp": 0.0418,
+            "torque_nm": 0.1499
+        },
+        "seats": {
+            "year": 0.025,
+            "selling_price": 0.1585,
+            "km_driven": 0.2079,
+            "seats": 1.0,
+            "mileage_kmpl": -0.4791,
+            "engine_cc": 0.6587,
+            "max_power_bhp": 0.259,
+            "torque_nm": 0.3913
+        },
+        "mileage_kmpl": {
+            "year": 0.3718,
+            "selling_price": -0.11,
+            "km_driven": -0.2037,
+            "seats": -0.4791,
+            "mileage_kmpl": 1.0,
+            "engine_cc": -0.5932,
+            "max_power_bhp": -0.3895,
+            "torque_nm": -0.2465
+        },
+        "engine_cc": {
+            "year": -0.0198,
+            "selling_price": 0.4428,
+            "km_driven": 0.2535,
+            "seats": 0.6587,
+            "mileage_kmpl": -0.5932,
+            "engine_cc": 1.0,
+            "max_power_bhp": 0.6835,
+            "torque_nm": 0.7369
+        },
+        "max_power_bhp": {
+            "year": 0.1599,
+            "selling_price": 0.6923,
+            "km_driven": 0.0418,
+            "seats": 0.259,
+            "mileage_kmpl": -0.3895,
+            "engine_cc": 0.6835,
+            "max_power_bhp": 1.0,
+            "torque_nm": 0.826
+        },
+        "torque_nm": {
+            "year": 0.1392,
+            "selling_price": 0.6217,
+            "km_driven": 0.1499,
+            "seats": 0.3913,
+            "mileage_kmpl": -0.2465,
+            "engine_cc": 0.7369,
+            "max_power_bhp": 0.826,
+            "torque_nm": 1.0
+        }
+    },
+    "strongest_positive_correlations": [
+        {
+            "feature_1": "max_power_bhp",
+            "feature_2": "torque_nm",
+            "feature_1_label": "Max Power (bhp)",
+            "feature_2_label": "Torque (Nm)",
+            "pearson_r": 0.826,
+            "abs_r": 0.826,
+            "domain_insight": "Engine Performance Coupling: Horsepower and torque both measure mechanical engine work; high-power engines inherently deliver heavy rotational torque."
+        },
+        {
+            "feature_1": "engine_cc",
+            "feature_2": "torque_nm",
+            "feature_1_label": "Engine (CC)",
+            "feature_2_label": "Torque (Nm)",
+            "pearson_r": 0.7369,
+            "abs_r": 0.7369,
+            "domain_insight": "Displacement & Pulling Force: Larger combustion chamber volume displaces more air-fuel mixture, producing high twisting torque."
+        },
+        {
+            "feature_1": "selling_price",
+            "feature_2": "max_power_bhp",
+            "feature_1_label": "Selling Price",
+            "feature_2_label": "Max Power (bhp)",
+            "pearson_r": 0.6923,
+            "abs_r": 0.6923,
+            "domain_insight": "Primary Resale Price Driver: Maximum horsepower is the strongest numerical predictor of car value; performance and luxury carry massive market premiums."
+        },
+        {
+            "feature_1": "engine_cc",
+            "feature_2": "max_power_bhp",
+            "feature_1_label": "Engine (CC)",
+            "feature_2_label": "Max Power (bhp)",
+            "pearson_r": 0.6835,
+            "abs_r": 0.6835,
+            "domain_insight": "Engine Capacity & Output: Larger displacement cylinders allow burning more fuel per revolution, producing greater brake horsepower."
+        },
+        {
+            "feature_1": "seats",
+            "feature_2": "engine_cc",
+            "feature_1_label": "Seats",
+            "feature_2_label": "Engine (CC)",
+            "pearson_r": 0.6587,
+            "abs_r": 0.6587,
+            "domain_insight": "Vehicle Size & Architecture: High-capacity multi-seater vehicles (7-8 seat MPVs and SUVs) require large displacement engines to haul heavier curb weights."
+        },
+        {
+            "feature_1": "selling_price",
+            "feature_2": "torque_nm",
+            "feature_1_label": "Selling Price",
+            "feature_2_label": "Torque (Nm)",
+            "pearson_r": 0.6217,
+            "abs_r": 0.6217,
+            "domain_insight": "High Torque Premium: Vehicles with elevated torque ratings (SUVs and executive diesel sedans) command substantially higher resale prices."
+        },
+        {
+            "feature_1": "selling_price",
+            "feature_2": "engine_cc",
+            "feature_1_label": "Selling Price",
+            "feature_2_label": "Engine (CC)",
+            "pearson_r": 0.4428,
+            "abs_r": 0.4428,
+            "domain_insight": "Engine Size Valuation: Larger displacement vehicles command higher prices due to original vehicle segment positioning and excise tax brackets."
+        },
+        {
+            "feature_1": "year",
+            "feature_2": "selling_price",
+            "feature_1_label": "Year",
+            "feature_2_label": "Selling Price",
+            "pearson_r": 0.4273,
+            "abs_r": 0.4273,
+            "domain_insight": "Age & Depreciation: Newer vehicles retain significantly higher market prices, reflecting lower wear-and-tear and longer remaining service life."
+        }
+    ],
+    "strongest_negative_correlations": [
+        {
+            "feature_1": "km_driven",
+            "feature_2": "mileage_kmpl",
+            "feature_1_label": "KM Driven",
+            "feature_2_label": "Mileage (kmpl)",
+            "pearson_r": -0.2037,
+            "abs_r": 0.2037,
+            "domain_insight": "Fleet & Commercial Profiling: High-odometer vehicles are frequently heavier diesel fleet cars, though older engines also experience efficiency wear."
+        },
+        {
+            "feature_1": "mileage_kmpl",
+            "feature_2": "torque_nm",
+            "feature_1_label": "Mileage (kmpl)",
+            "feature_2_label": "Torque (Nm)",
+            "pearson_r": -0.2465,
+            "abs_r": 0.2465,
+            "domain_insight": "Torque Efficiency Cost: Engines tuned to deliver high low-end pulling force consume more fuel per kilometer under load."
+        },
+        {
+            "feature_1": "year",
+            "feature_2": "km_driven",
+            "feature_1_label": "Year",
+            "feature_2_label": "KM Driven",
+            "pearson_r": -0.3879,
+            "abs_r": 0.3879,
+            "domain_insight": "Odometer Accumulation: Older vehicles exhibit significantly higher cumulative mileage due to longer cumulative calendar service."
+        },
+        {
+            "feature_1": "mileage_kmpl",
+            "feature_2": "max_power_bhp",
+            "feature_1_label": "Mileage (kmpl)",
+            "feature_2_label": "Max Power (bhp)",
+            "pearson_r": -0.3895,
+            "abs_r": 0.3895,
+            "domain_insight": "Power vs. Economy Trade-off: High horsepower engines are tuned for aggressive acceleration and torque rather than lean-burn fuel efficiency."
+        },
+        {
+            "feature_1": "seats",
+            "feature_2": "mileage_kmpl",
+            "feature_1_label": "Seats",
+            "feature_2_label": "Mileage (kmpl)",
+            "pearson_r": -0.4791,
+            "abs_r": 0.4791,
+            "domain_insight": "Chassis Bulk & Seating Penalty: Vehicles carrying 7 to 8 passengers have higher curb weights and less aerodynamic profiles, depressing fuel economy."
+        },
+        {
+            "feature_1": "mileage_kmpl",
+            "feature_2": "engine_cc",
+            "feature_1_label": "Mileage (kmpl)",
+            "feature_2_label": "Engine (CC)",
+            "pearson_r": -0.5932,
+            "abs_r": 0.5932,
+            "domain_insight": "Thermodynamic Efficiency Trade-off: Larger engine displacement consumes more fuel per combustion stroke, causing a severe drop in fuel economy."
+        }
+    ],
+    "moderate_and_weak_correlations": [
+        {
+            "feature_1": "seats",
+            "feature_2": "torque_nm",
+            "feature_1_label": "Seats",
+            "feature_2_label": "Torque (Nm)",
+            "pearson_r": 0.3913,
+            "abs_r": 0.3913
+        },
+        {
+            "feature_1": "year",
+            "feature_2": "mileage_kmpl",
+            "feature_1_label": "Year",
+            "feature_2_label": "Mileage (kmpl)",
+            "pearson_r": 0.3718,
+            "abs_r": 0.3718
+        },
+        {
+            "feature_1": "seats",
+            "feature_2": "max_power_bhp",
+            "feature_1_label": "Seats",
+            "feature_2_label": "Max Power (bhp)",
+            "pearson_r": 0.259,
+            "abs_r": 0.259
+        },
+        {
+            "feature_1": "km_driven",
+            "feature_2": "engine_cc",
+            "feature_1_label": "KM Driven",
+            "feature_2_label": "Engine (CC)",
+            "pearson_r": 0.2535,
+            "abs_r": 0.2535
+        },
+        {
+            "feature_1": "km_driven",
+            "feature_2": "seats",
+            "feature_1_label": "KM Driven",
+            "feature_2_label": "Seats",
+            "pearson_r": 0.2079,
+            "abs_r": 0.2079
+        },
+        {
+            "feature_1": "year",
+            "feature_2": "max_power_bhp",
+            "feature_1_label": "Year",
+            "feature_2_label": "Max Power (bhp)",
+            "pearson_r": 0.1599,
+            "abs_r": 0.1599
+        },
+        {
+            "feature_1": "selling_price",
+            "feature_2": "seats",
+            "feature_1_label": "Selling Price",
+            "feature_2_label": "Seats",
+            "pearson_r": 0.1585,
+            "abs_r": 0.1585
+        },
+        {
+            "feature_1": "km_driven",
+            "feature_2": "torque_nm",
+            "feature_1_label": "KM Driven",
+            "feature_2_label": "Torque (Nm)",
+            "pearson_r": 0.1499,
+            "abs_r": 0.1499
+        },
+        {
+            "feature_1": "year",
+            "feature_2": "torque_nm",
+            "feature_1_label": "Year",
+            "feature_2_label": "Torque (Nm)",
+            "pearson_r": 0.1392,
+            "abs_r": 0.1392
+        },
+        {
+            "feature_1": "km_driven",
+            "feature_2": "max_power_bhp",
+            "feature_1_label": "KM Driven",
+            "feature_2_label": "Max Power (bhp)",
+            "pearson_r": 0.0418,
+            "abs_r": 0.0418
+        },
+        {
+            "feature_1": "year",
+            "feature_2": "seats",
+            "feature_1_label": "Year",
+            "feature_2_label": "Seats",
+            "pearson_r": 0.025,
+            "abs_r": 0.025
+        },
+        {
+            "feature_1": "year",
+            "feature_2": "engine_cc",
+            "feature_1_label": "Year",
+            "feature_2_label": "Engine (CC)",
+            "pearson_r": -0.0198,
+            "abs_r": 0.0198
+        },
+        {
+            "feature_1": "selling_price",
+            "feature_2": "mileage_kmpl",
+            "feature_1_label": "Selling Price",
+            "feature_2_label": "Mileage (kmpl)",
+            "pearson_r": -0.11,
+            "abs_r": 0.11
+        },
+        {
+            "feature_1": "selling_price",
+            "feature_2": "km_driven",
+            "feature_1_label": "Selling Price",
+            "feature_2_label": "KM Driven",
+            "pearson_r": -0.1613,
+            "abs_r": 0.1613
+        }
+    ],
+    "causation_vs_correlation": {
+        "definition": "Pearson correlation (r) measures the degree of linear association between two variables. It does NOT establish that one variable directly causes or determines changes in the other. Observed correlations can be driven by lurking/confounding variables, reverse causality, or joint dependency on third factors.",
+        "case_studies": [
+            {
+                "pair": "Max Power (bhp) <--> Selling Price (r = +0.692)",
+                "observation": "Cars with higher horsepower command substantially higher selling prices.",
+                "why_not_direct_causation": "Confounding Variable (Luxury Segment & Brand Prestige): Bolting a high-output engine or turbocharger into an economy budget hatchback will not automatically command a 30 Lakh Rs. price. High-horsepower vehicles in this dataset are predominantly luxury and premium offerings (e.g., BMW, Mercedes-Benz, Audi, Volvo, Jaguar) that also include expensive leather interiors, advanced multi-link suspensions, panoramic roofs, and premium brand pricing power. Power serves as a proxy for the entire luxury vehicle class, rather than being the sole direct cause."
+            },
+            {
+                "pair": "Year <--> Kilometres Driven (r = -0.388)",
+                "observation": "Newer cars have lower odometer readings, while older cars have higher readings.",
+                "why_not_direct_causation": "Lurking Underlying Mechanism (Cumulative Usage Duration): The calendar year changing does not physically spin the odometer wheels backwards. Rather, the passage of elapsed calendar years provides owners with more time and opportunity to drive the vehicle for daily commutes and long trips. It is the elapsed operational usage that drives mileage accumulation, not the calendar number itself."
+            },
+            {
+                "pair": "Seats <--> Mileage (kmpl) (r = -0.479)",
+                "observation": "Vehicles with 7 or 8 seats exhibit significantly lower fuel economy than 5-seater cars.",
+                "why_not_direct_causation": "Structural Vehicle Architecture: Installing two extra seats into a vehicle cabin does not mechanically degrade the thermodynamic combustion inside the engine cylinders. Instead, 7-seater vehicles (such as Toyota Innova or Mahindra Scorpio) are engineered with substantially heavier chassis, larger frontal surface area (aerodynamic drag), and higher-displacement engines. It is this structural weight and engine displacement that causes lower mileage, not the presence of the physical seat cushions."
+            }
+        ]
+    },
+    "generated_charts": [
+        {
+            "file": "multivariate_correlation_heatmap.png",
+            "type": "Seaborn Diverging Correlation Heatmap",
+            "description": "Pairwise Pearson linear correlation coefficients among all 8 numerical features."
+        },
+        {
+            "file": "multivariate_2_price_drivers_scatter.png",
+            "type": "Multivariate Scatter & Bubble Plot",
+            "description": "Selling Price vs Max Power segmented by Transmission type and sized by Engine CC."
+        },
+        {
+            "file": "multivariate_3_mileage_tradeoff_scatter.png",
+            "type": "Multivariate Scatter & Bubble Plot",
+            "description": "Fuel Economy vs Engine Displacement segmented by Fuel type and sized by Seating capacity."
+        }
+    ]
+}

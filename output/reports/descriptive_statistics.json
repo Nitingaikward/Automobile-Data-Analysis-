@@ -1,0 +1,300 @@
+{
+    "dataset_rows": 6717,
+    "dataset_columns": 14,
+    "numerical_metrics": {
+        "selling_price": {
+            "count": 6717,
+            "mean": 526386.0,
+            "median": 420000.0,
+            "std": 523550.45,
+            "min": 29999.0,
+            "max": 10000000.0,
+            "skewness": 5.57,
+            "distribution_shape": "Right-Skewed (Mean > Median)"
+        },
+        "km_driven": {
+            "count": 6717,
+            "mean": 73398.34,
+            "median": 68203.0,
+            "std": 58703.28,
+            "min": 1.0,
+            "max": 2360457.0,
+            "skewness": 11.92,
+            "distribution_shape": "Right-Skewed (Mean > Median)"
+        },
+        "year": {
+            "count": 6717,
+            "mean": 2013.61,
+            "median": 2014.0,
+            "std": 3.9,
+            "min": 1994.0,
+            "max": 2020.0,
+            "skewness": -0.93,
+            "distribution_shape": "Left-Skewed (Mean < Median)"
+        },
+        "mileage_kmpl": {
+            "count": 6717,
+            "mean": 19.51,
+            "median": 19.44,
+            "std": 3.94,
+            "min": 9.0,
+            "max": 42.0,
+            "skewness": 0.06,
+            "distribution_shape": "Approximately Symmetric"
+        },
+        "engine_cc": {
+            "count": 6717,
+            "mean": 1430.99,
+            "median": 1248.0,
+            "std": 493.47,
+            "min": 624.0,
+            "max": 3604.0,
+            "skewness": 1.22,
+            "distribution_shape": "Right-Skewed (Mean > Median)"
+        },
+        "max_power_bhp": {
+            "count": 6717,
+            "mean": 87.77,
+            "median": 81.83,
+            "std": 31.72,
+            "min": 32.8,
+            "max": 400.0,
+            "skewness": 1.71,
+            "distribution_shape": "Right-Skewed (Mean > Median)"
+        },
+        "torque_nm": {
+            "count": 6717,
+            "mean": 170.5,
+            "median": 160.0,
+            "std": 84.23,
+            "min": 35.7,
+            "max": 789.0,
+            "skewness": 1.34,
+            "distribution_shape": "Right-Skewed (Mean > Median)"
+        },
+        "seats": {
+            "count": 6717,
+            "mean": 5.43,
+            "median": 5.0,
+            "std": 0.98,
+            "min": 2.0,
+            "max": 14.0,
+            "skewness": 1.92,
+            "distribution_shape": "Right-Skewed (Mean > Median)"
+        }
+    },
+    "categorical_modes": {
+        "fuel": {
+            "mode": "Diesel",
+            "count": 3658,
+            "percentage": 54.46
+        },
+        "transmission": {
+            "mode": "Manual",
+            "count": 6142,
+            "percentage": 91.44
+        },
+        "seller_type": {
+            "mode": "Individual",
+            "count": 6024,
+            "percentage": 89.68
+        },
+        "owner": {
+            "mode": "First Owner",
+            "count": 4176,
+            "percentage": 62.17
+        }
+    },
+    "categorical_distributions": {
+        "fuel": {
+            "Diesel": {
+                "count": 3658,
+                "percentage": 54.46
+            },
+            "Petrol": {
+                "count": 2973,
+                "percentage": 44.26
+            },
+            "CNG": {
+                "count": 51,
+                "percentage": 0.76
+            },
+            "LPG": {
+                "count": 35,
+                "percentage": 0.52
+            }
+        },
+        "transmission": {
+            "Manual": {
+                "count": 6142,
+                "percentage": 91.44
+            },
+            "Automatic": {
+                "count": 575,
+                "percentage": 8.56
+            }
+        },
+        "seller_type": {
+            "Individual": {
+                "count": 6024,
+                "percentage": 89.68
+            },
+            "Dealer": {
+                "count": 666,
+                "percentage": 9.92
+            },
+            "Trustmark Dealer": {
+                "count": 27,
+                "percentage": 0.4
+            }
+        },
+        "owner": {
+            "First Owner": {
+                "count": 4176,
+                "percentage": 62.17
+            },
+            "Second Owner": {
+                "count": 1888,
+                "percentage": 28.11
+            },
+            "Third Owner": {
+                "count": 493,
+                "percentage": 7.34
+            },
+            "Fourth & Above Owner": {
+                "count": 155,
+                "percentage": 2.31
+            },
+            "Test Drive Car": {
+                "count": 5,
+                "percentage": 0.07
+            }
+        }
+    },
+    "grouped_price_summaries": {
+        "by_transmission": {
+            "Automatic": {
+                "count": 575,
+                "mean": 1322916.5,
+                "median": 850000.0,
+                "std": 1257347.83
+            },
+            "Manual": {
+                "count": 6142,
+                "mean": 451816.63,
+                "median": 400000.0,
+                "std": 295014.04
+            }
+        },
+        "by_fuel": {
+            "CNG": {
+                "count": 51,
+                "mean": 317666.61,
+                "median": 330000.0,
+                "std": 102366.65
+            },
+            "Diesel": {
+                "count": 3658,
+                "mean": 647996.11,
+                "median": 525000.0,
+                "std": 589142.67
+            },
+            "LPG": {
+                "count": 35,
+                "mean": 210885.71,
+                "median": 200000.0,
+                "std": 79828.04
+            },
+            "Petrol": {
+                "count": 2973,
+                "mean": 384050.78,
+                "median": 320000.0,
+                "std": 389468.28
+            }
+        },
+        "by_owner": {
+            "First Owner": {
+                "count": 4176,
+                "mean": 620511.37,
+                "median": 500000.0,
+                "std": 579762.64
+            },
+            "Fourth & Above Owner": {
+                "count": 155,
+                "mean": 231970.92,
+                "median": 185000.0,
+                "std": 158727.46
+            },
+            "Second Owner": {
+                "count": 1888,
+                "mean": 393886.27,
+                "median": 320000.0,
+                "std": 323600.79
+            },
+            "Test Drive Car": {
+                "count": 5,
+                "mean": 4403800.0,
+                "median": 5923000.0,
+                "std": 2510598.28
+            },
+            "Third Owner": {
+                "count": 493,
+                "mean": 289751.55,
+                "median": 229999.0,
+                "std": 223233.5
+            }
+        },
+        "by_top_brands": {
+            "Toyota": {
+                "count": 324,
+                "mean": 948354.87,
+                "median": 750000.0
+            },
+            "Mahindra": {
+                "count": 709,
+                "mean": 623684.02,
+                "median": 570000.0
+            },
+            "Honda": {
+                "count": 361,
+                "mean": 574460.21,
+                "median": 560000.0
+            },
+            "Ford": {
+                "count": 353,
+                "mean": 508161.43,
+                "median": 450000.0
+            },
+            "Hyundai": {
+                "count": 1214,
+                "mean": 466601.69,
+                "median": 425000.0
+            },
+            "Volkswagen": {
+                "count": 173,
+                "mean": 479976.86,
+                "median": 420000.0
+            },
+            "Renault": {
+                "count": 206,
+                "mean": 449694.14,
+                "median": 395000.0
+            },
+            "Maruti": {
+                "count": 2089,
+                "mean": 393974.54,
+                "median": 350000.0
+            },
+            "Tata": {
+                "count": 633,
+                "mean": 348941.4,
+                "median": 265000.0
+            },
+            "Chevrolet": {
+                "count": 216,
+                "mean": 268349.63,
+                "median": 220000.0
+            }
+        }
+    }
+}

@@ -1,0 +1,223 @@
+{
+    "total_findings": 8,
+    "dataset_rows": 6717,
+    "findings": [
+        {
+            "id": 1,
+            "title": "Diesel Dominates Fuel Type, But Petrol Accounts for the Volume of Budget Cars",
+            "question": "Which fuel type is most common?",
+            "key_statistics": {
+                "Diesel_count": 3658,
+                "Diesel_share_pct": 54.5,
+                "Diesel_median_price": 525000,
+                "Petrol_count": 2973,
+                "Petrol_share_pct": 44.3,
+                "Petrol_median_price": 320000,
+                "CNG_count": 51,
+                "LPG_count": 35,
+                "Diesel_vs_Petrol_premium_pct": 64.0
+            },
+            "supporting_chart": "univariate_2_fuel_type.png",
+            "finding_summary": "Diesel is the most common fuel type (54.5% of 6,717 vehicles) and commands a 64% higher median resale price than petrol cars (Rs.5.25L vs Rs.3.20L). CNG and LPG combined account for only 1.3% of listings.",
+            "limitation": "Listing proportions reflect seller behaviour rather than the nationwide on-road vehicle distribution."
+        },
+        {
+            "id": 2,
+            "title": "Selling Price Is Strongly Right-Skewed: Most Cars Are Affordable But a Luxury Tail Inflates the Average",
+            "question": "How is the selling price distributed?",
+            "key_statistics": {
+                "mean_price": 526386,
+                "median_price": 420000,
+                "std_dev": 523550,
+                "min_price": 29999,
+                "max_price": 10000000,
+                "skewness": 5.571,
+                "iqr_q1": 250000,
+                "iqr_q3": 650000,
+                "pct_below_20L": 98.4,
+                "pct_above_50L": 0.3,
+                "price_outliers_iqr_method": 306
+            },
+            "supporting_chart": "univariate_1_selling_price.png",
+            "finding_summary": "The median price of Rs.4.2L is the best measure of a typical used car. The mean (Rs.5.26L) is inflated by 306 high-end outliers (up to Rs.1 Crore). 98.4% of cars are priced below Rs.20 Lakh.",
+            "limitation": "Outliers were retained as genuine luxury vehicles; removing them would not reflect the full market."
+        },
+        {
+            "id": 3,
+            "title": "Newer Vehicles Command Higher Prices: Approximately Rs.57,000 More Per Year of Manufacturing",
+            "question": "Is vehicle manufacturing year associated with selling price?",
+            "key_statistics": {
+                "pearson_r": 0.427,
+                "p_value": "2.14e-296",
+                "r_squared": 0.183,
+                "price_per_year_increase": 57405,
+                "median_2011": 265000,
+                "median_2015": 527500,
+                "median_2018": 700000,
+                "median_2020": 600000,
+                "n_2020": 63
+            },
+            "supporting_chart": "univariate_4_manufacturing_year.png",
+            "finding_summary": "Manufacturing year has a moderate positive association with price (r=+0.427, p<0.0001). Each newer year is associated with approximately Rs.57,405 more in price. The 2020 dip reflects very few listings (n=63) and a shift to BS6-petrol vehicles.",
+            "limitation": "Year alone explains only 18.3% of price variance (R-squared=0.183). Vehicle condition and service history are unavailable."
+        },
+        {
+            "id": 4,
+            "title": "Automatic Transmission Cars Carry a 112.5% Median Price Premium Over Manual Cars",
+            "question": "Do manual and automatic cars show different price distributions?",
+            "key_statistics": {
+                "Manual_count": 6142,
+                "Manual_share_pct": 91.4,
+                "Manual_median_price": 400000,
+                "Automatic_count": 575,
+                "Automatic_share_pct": 8.6,
+                "Automatic_median_price": 850000,
+                "premium_pct": 112.5,
+                "Manual_median_engine_cc": 1248,
+                "Automatic_median_engine_cc": 1591,
+                "Manual_median_mileage_kmpl": 19.7,
+                "Automatic_median_mileage_kmpl": 17.09,
+                "Manual_median_power_bhp": 81.8,
+                "Automatic_median_power_bhp": 126.2
+            },
+            "supporting_chart": "multivariate_2_price_drivers_scatter.png",
+            "finding_summary": "Automatic cars (8.6% of listings) have a median price more than double that of manual cars (Rs.8.5L vs Rs.4.0L). This gap is partly driven by automatic cars having bigger engines and more power, not the gearbox alone.",
+            "limitation": "Transmission type is confounded with vehicle segment and brand; causal separation is not possible with this dataset."
+        },
+        {
+            "id": 5,
+            "title": "Ownership History Is Associated With Depreciation: 36% Price Drop from First to Second Owner",
+            "question": "Additional finding on ownership and depreciation.",
+            "key_statistics": {
+                "First_Owner_n": 4176,
+                "First_Owner_median": 500000,
+                "Second_Owner_n": 1888,
+                "Second_Owner_median": 320000,
+                "First_to_Second_drop_pct": 36.0,
+                "Third_Owner_n": 493,
+                "Third_Owner_median": 229999,
+                "Second_to_Third_drop_pct": 28.1,
+                "Fourth_Owner_n": 155,
+                "Fourth_Owner_median": 185000,
+                "pearson_r_owner_vs_price": -0.181,
+                "p_value": "1.36e-35"
+            },
+            "supporting_chart": "univariate_1_selling_price.png",
+            "finding_summary": "Each ownership transfer is associated with a significant price reduction. First to second owner sees the steepest drop of 36% (Rs.5.0L to Rs.3.2L). By the fourth-or-more owner stage, median price falls to Rs.1.85L.",
+            "limitation": "Ownership history cannot distinguish between cars that changed hands due to upgrades versus mechanical problems."
+        },
+        {
+            "id": 6,
+            "title": "Engine Power Is the Strongest Single Numerical Predictor of Resale Price (r = +0.692)",
+            "question": "Which numerical features show stronger correlations?",
+            "key_statistics": {
+                "max_r_overall": 0.826,
+                "max_power_vs_torque_r": 0.826,
+                "selling_price_vs_max_power_r": 0.692,
+                "selling_price_vs_engine_cc_r": 0.443,
+                "mileage_vs_engine_cc_r": -0.593,
+                "selling_price_vs_torque_r": 0.622,
+                "engine_cc_vs_max_power_r": 0.684,
+                "top_correlations": [
+                    {
+                        "pair": "max_power_bhp vs torque_nm",
+                        "r": 0.826
+                    },
+                    {
+                        "pair": "engine_cc vs torque_nm",
+                        "r": 0.737
+                    },
+                    {
+                        "pair": "selling_price vs max_power_bhp",
+                        "r": 0.692
+                    },
+                    {
+                        "pair": "engine_cc vs max_power_bhp",
+                        "r": 0.684
+                    },
+                    {
+                        "pair": "mileage_kmpl vs engine_cc",
+                        "r": -0.593
+                    },
+                    {
+                        "pair": "selling_price vs year",
+                        "r": 0.427
+                    }
+                ]
+            },
+            "supporting_chart": "multivariate_correlation_heatmap.png",
+            "finding_summary": "Max Power (bhp) is the strongest numerical predictor of selling price (r=+0.692). Engine CC, Torque, and Year also show positive associations. Mileage (kmpl) has a strong negative association with engine size (r=-0.593), confirming the classic power-efficiency trade-off.",
+            "limitation": "Pearson r measures linear association only. Non-linear effects and categorical confounders are not captured."
+        },
+        {
+            "id": 7,
+            "title": "German Luxury Brands Command Median Prices 7-8x Higher Than Budget Brands",
+            "question": "Which brands have higher average selling prices?",
+            "key_statistics": {
+                "brands_with_30_plus_listings": 17,
+                "top_brands_by_median": {
+                    "BMW": {
+                        "median": 2500000,
+                        "n": 45
+                    },
+                    "Audi": {
+                        "median": 2000000,
+                        "n": 33
+                    },
+                    "Mercedes-Benz": {
+                        "median": 1892000,
+                        "n": 46
+                    },
+                    "Toyota": {
+                        "median": 750000,
+                        "n": 324
+                    },
+                    "Mahindra": {
+                        "median": 570000,
+                        "n": 709
+                    },
+                    "Hyundai": {
+                        "median": 425000,
+                        "n": 1214
+                    },
+                    "Maruti": {
+                        "median": 350000,
+                        "n": 2089
+                    },
+                    "Chevrolet": {
+                        "median": 220000,
+                        "n": 216
+                    }
+                },
+                "maruti_market_share_pct": 31.1,
+                "top_2_brands_combined_share_pct": 49.2
+            },
+            "supporting_chart": "univariate_8_top_brands.png",
+            "finding_summary": "BMW (Rs.25L), Audi (Rs.20L) and Mercedes-Benz (Rs.18.9L) lead on median price. Maruti (Rs.3.5L) dominates by volume (31.1% share). Maruti and Hyundai together hold ~50% of the market. Only 17 brands had >= 30 listings; smaller brands excluded to avoid small-sample bias.",
+            "limitation": "Brand median prices are influenced by the model mix listed \u2014 a brand appearing only in entry-level models will show a lower median regardless of its true capabilities."
+        },
+        {
+            "id": 8,
+            "title": "Kilometres Driven Has Only a Weak Association With Price; Decline Is Clearest in Early Usage Buckets",
+            "question": "Is kilometres driven associated with selling price?",
+            "key_statistics": {
+                "pearson_r": -0.161,
+                "p_value": "2.27e-40",
+                "km_bucket_medians": {
+                    "<30k": 570000,
+                    "30-60k": 450000,
+                    "60-100k": 360000,
+                    "100-150k": 340000,
+                    "150-200k": 325000,
+                    ">200k": 400000
+                },
+                "km_outliers_count": 161,
+                "max_km": 2360457,
+                "max_km_brand": "Hyundai"
+            },
+            "supporting_chart": "univariate_5_km_driven.png",
+            "finding_summary": "KM driven has a weak but statistically significant negative association with price (r=-0.161). Median price drops from Rs.5.7L (< 30k km) to Rs.3.25L (150-200k km). The > 200k km bucket shows a price uptick, likely due to durable diesel fleet vehicles. Max KM recorded: 2.36 million (a commercial Hyundai).",
+            "limitation": "KM alone is a poor price predictor compared to engine power and vehicle age. Actual mechanical condition data is unavailable."
+        }
+    ]
+}

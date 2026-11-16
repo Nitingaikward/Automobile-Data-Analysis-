@@ -1,0 +1,50 @@
+{
+    "original_rows": 8128,
+    "original_columns": 13,
+    "cleaned_rows": 6717,
+    "cleaned_columns": 14,
+    "total_rows_removed": 1411,
+    "retention_rate_pct": 82.64,
+    "cleaning_operations": [
+        {
+            "step": 1,
+            "operation": "Exact Duplicate Removal",
+            "rows_removed": 1202,
+            "rows_remaining": 6926,
+            "justification": "Identical listings across all 13 fields represent duplicate dealer postings."
+        },
+        {
+            "step": 2,
+            "operation": "Text Trimming & Brand Extraction",
+            "total_brands_extracted": 32,
+            "justification": "Standardized string padding and extracted primary automotive manufacturer for grouping."
+        },
+        {
+            "step": 3,
+            "operation": "Feature Unit Extraction",
+            "features_converted": [
+                "mileage_kmpl",
+                "engine_cc",
+                "max_power_bhp",
+                "torque_nm"
+            ],
+            "justification": "Extracted pure numeric values, converted kgm to Nm (1 kgm = 9.80665 Nm), and marked 0.0 mileage as invalid."
+        },
+        {
+            "step": 4,
+            "operation": "Missing Value Handling",
+            "unrecorded_spec_rows_dropped": 209,
+            "seats_imputed_mode": 0,
+            "mileage_imputed_group_median": 15,
+            "torque_imputed_engine_median": 0,
+            "justification": "Dropped 209 unrecorded engine records to prevent data fabrication. Imputed partial missing specs using group medians/mode."
+        },
+        {
+            "step": 5,
+            "operation": "Outlier Retention Policy",
+            "luxury_cars_preserved": 282,
+            "fleet_cars_preserved": 162,
+            "justification": "High price and high km represent authentic market heterogeneity, not erroneous data."
+        }
+    ]
+}

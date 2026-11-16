@@ -1,0 +1,66 @@
+{
+    "selling_price": {
+        "chart_file": "univariate_1_selling_price.png",
+        "feature": "selling_price",
+        "type": "Dual-Panel Histogram + KDE",
+        "mean": 526386.0,
+        "median": 420000.0,
+        "observation": "Selling prices exhibit strong positive skewness (+5.57). 96% of pre-owned cars sell for under Rs. 20 Lakhs, with the core market centered around the median of Rs. 4.20 Lakhs. The mean (Rs. 5.26 Lakhs) is pulled Rs. 1.06 Lakhs higher by a long luxury tail extending up to Rs. 100 Lakhs."
+    },
+    "fuel": {
+        "chart_file": "univariate_2_fuel_type.png",
+        "feature": "fuel",
+        "type": "Bar Chart",
+        "dominant_mode": "Diesel",
+        "mode_share_pct": 54.46,
+        "observation": "Diesel is the dominant fuel type (3,658 cars / 54.5%), followed closely by Petrol (2,973 cars / 44.3%). Clean alternative fuels (CNG: 0.8% and LPG: 0.5%) represent a tiny niche (1.3% combined) in the secondary market."
+    },
+    "transmission": {
+        "chart_file": "univariate_3_transmission.png",
+        "feature": "transmission",
+        "type": "Bar Chart",
+        "manual_pct": 91.44,
+        "automatic_pct": 8.56,
+        "observation": "Manual transmission vehicles completely dominate the used car market at 91.4% (6,142 cars), while Automatic transmissions account for only 8.6% (575 cars), reflecting historical buyer preference for lower purchase price and maintenance economy."
+    },
+    "year": {
+        "chart_file": "univariate_4_manufacturing_year.png",
+        "feature": "year",
+        "type": "Bar Chart",
+        "peak_year": 2017,
+        "peak_count": 802,
+        "observation": "Inventory volume is left-skewed, accelerating rapidly post-2010. Peak supply is concentrated between 2012 and 2018, with the highest single volume in 2017 (802 cars). This indicates that most vehicles on the secondary market are between 4 and 9 years old."
+    },
+    "km_driven": {
+        "chart_file": "univariate_5_km_driven.png",
+        "feature": "km_driven",
+        "type": "Dual-Panel Histogram + Boxplot",
+        "mean_km": 73398.3,
+        "median_km": 68203.0,
+        "observation": "Odometer readings are moderately right-skewed (+11.92). The median distance traveled is 68,203 km (Mean: 73,398 km). The vast majority of pre-owned vehicles fall in the 30,000 km to 120,000 km bracket, with commercial fleet and taxi cars forming a long upper tail exceeding 200,000 km."
+    },
+    "mileage_kmpl": {
+        "chart_file": "univariate_6_mileage.png",
+        "feature": "mileage_kmpl",
+        "type": "Histogram + KDE",
+        "mean_kmpl": 19.51,
+        "median_kmpl": 19.44,
+        "observation": "Fuel economy follows an approximately symmetric, bell-shaped normal distribution (skewness: +0.06). Mean mileage (19.51 kmpl) and median mileage (19.44 kmpl) are virtually identical. The middle 50% of automobiles achieve between 16.8 kmpl and 22.5 kmpl, with high-efficiency hatchbacks exceeding 30 kmpl."
+    },
+    "engine_cc": {
+        "chart_file": "univariate_7_engine_cc.png",
+        "feature": "engine_cc",
+        "type": "Histogram + KDE",
+        "mean_cc": 1431.0,
+        "median_cc": 1248.0,
+        "observation": "Engine displacement exhibits a multi-modal distribution reflecting Indian vehicle tax brackets. Prominent clusters appear at 1,197 CC (sub-1.2L petrol duty tier), 1,248 CC (1.3L MultiJet diesel), and 1,498 CC (1.5L mid-size tier). Median engine size is 1,248 CC."
+    },
+    "top_brands": {
+        "chart_file": "univariate_8_top_brands.png",
+        "feature": "brand",
+        "type": "Horizontal Bar Chart",
+        "leader_brand": "Maruti",
+        "leader_share_pct": 31.1,
+        "observation": "Maruti Suzuki is the undisputed market volume leader with 2,089 cars (31.1% market share), followed by Hyundai (1,214 cars / 18.1%). Together, the top two brands control nearly 50% of the entire pre-owned automobile inventory."
+    }
+}

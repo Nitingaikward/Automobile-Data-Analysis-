@@ -1,0 +1,9 @@
+Feature,Count,Mean,Median,Std_Dev,Min,Max,Skewness,Distribution_Shape
+selling_price,6717,526386.0,420000.0,523550.45,29999.0,10000000.0,5.57,Right-Skewed (Mean > Median)
+km_driven,6717,73398.34,68203.0,58703.28,1.0,2360457.0,11.92,Right-Skewed (Mean > Median)
+year,6717,2013.61,2014.0,3.9,1994.0,2020.0,-0.93,Left-Skewed (Mean < Median)
+mileage_kmpl,6717,19.51,19.44,3.94,9.0,42.0,0.06,Approximately Symmetric
+engine_cc,6717,1430.99,1248.0,493.47,624.0,3604.0,1.22,Right-Skewed (Mean > Median)
+max_power_bhp,6717,87.77,81.83,31.72,32.8,400.0,1.71,Right-Skewed (Mean > Median)
+torque_nm,6717,170.5,160.0,84.23,35.7,789.0,1.34,Right-Skewed (Mean > Median)
+seats,6717,5.43,5.0,0.98,2.0,14.0,1.92,Right-Skewed (Mean > Median)
