@@ -1505,20 +1505,20 @@ def generate_pdf_report(df: pd.DataFrame) -> None:
     rows_dropped = raw_rows - dups_removed - cln_rows
 
     # ==================================================================
-    # PAGE 1: COVER PAGE
+    # PAGE 1: 1. COVER PAGE
     # ==================================================================
-    story.append(Spacer(1, 2.5 * cm))
+    story.append(Spacer(1, 2.0 * cm))
     story.append(Paragraph("UNLOX STUDENT PROJECT ASSIGNMENT", COVER_SUB))
-    story.append(Spacer(1, 0.4 * cm))
+    story.append(Spacer(1, 0.3 * cm))
     story.append(Paragraph("Exploratory Data Analysis on a Cars Dataset", COVER_TITLE))
     story.append(Paragraph("Clean, explore, visualise, and explain meaningful patterns in automobile data", COVER_SUB))
-    story.append(Spacer(1, 0.5 * cm))
+    story.append(Spacer(1, 0.4 * cm))
     story.append(HRFlowable(width=CONTENT_W, thickness=2, color=colors.HexColor('#2D5986')))
-    story.append(Spacer(1, 1.5 * cm))
+    story.append(Spacer(1, 1.2 * cm))
 
     cover_table_data = [
         [Paragraph("<b>Project Title:</b>", BODY), Paragraph("Exploratory Data Analysis on a Cars Dataset", BODY)],
-        [Paragraph("<b>Student Name:</b>", BODY), Paragraph("Nithin", BODY)],
+        [Paragraph("<b>Student Name:</b>", BODY), Paragraph("Nitin Gaikwad", BODY)],
         [Paragraph("<b>Batch:</b>", BODY), Paragraph("Data Analytics / Data Science", BODY)],
         [Paragraph("<b>Submission Date:</b>", BODY), Paragraph(date.today().strftime("%d %B %Y"), BODY)],
         [Paragraph("<b>Project Goal:</b>", BODY), Paragraph("Perform comprehensive EDA, improve data quality, identify patterns & outliers, and communicate useful insights", BODY)],
@@ -1533,61 +1533,61 @@ def generate_pdf_report(df: pd.DataFrame) -> None:
         ('BACKGROUND', (0, 0), (-1, -1), colors.HexColor('#F8FAFC')),
         ('BOX', (0, 0), (-1, -1), 1, colors.HexColor('#CBD5E0')),
         ('INNERGRID', (0, 0), (-1, -1), 0.5, colors.HexColor('#E2E8F0')),
-        ('PADDING', (0, 0), (-1, -1), 6),
+        ('PADDING', (0, 0), (-1, -1), 5.5),
         ('VALIGN', (0, 0), (-1, -1), 'MIDDLE'),
     ]))
     story.append(cov_tbl)
 
-    story.append(Spacer(1, 1.5 * cm))
+    story.append(Spacer(1, 1.2 * cm))
     story.append(Paragraph("<i>Academic Honesty Declaration: This submission represents original analytical work. All computations, statistical tables, and visualizations were derived directly from the referenced dataset. No values or conclusions have been fabricated.</i>", CAPTION))
     story.append(PageBreak())
 
     # ==================================================================
-    # PAGE 2: OBJECTIVE & DATASET OVERVIEW (WITH SAMPLE RECORDS)
+    # PAGE 2: 2. OBJECTIVE & 3. DATASET OVERVIEW (WITH SAMPLE RECORDS)
     # ==================================================================
-    story.append(Paragraph("1. Project Objective", H1))
+    story.append(Paragraph("2. Objective", H1))
     story.append(HRFlowable(width=CONTENT_W, thickness=1, color=colors.HexColor('#2D5986')))
-    story.append(Spacer(1, 0.2 * cm))
+    story.append(Spacer(1, 0.15 * cm))
     story.append(Paragraph(
-        "The objective of this project is to perform a rigorous end-to-end Exploratory Data Analysis (EDA) on a "
-        "real-world automobile dataset. As specified in the UNLOX assignment guidelines, the study investigates "
-        "the following core exploratory questions without using a machine learning model:", BODY))
+        "The purpose of this Exploratory Data Analysis (EDA) project is to rigorously understand the used-car market, "
+        "evaluate data quality, clean anomalies, and communicate actionable evidence-based insights through clear visualizations. "
+        "In accordance with UNLOX assignment requirements, no machine learning model is utilized. The study investigates:", BODY))
 
     core_qs = [
-        "<b>Brand & Fuel Prevalence:</b> Which automotive brands and fuel types dominate the used car market?",
-        "<b>Transmission Breakdown:</b> How do manual and automatic transmissions compare in volume and price?",
-        "<b>Price Distribution & Skew:</b> How are vehicle selling prices distributed, and what is the extent of skewness?",
-        "<b>Depreciation Dynamics:</b> How does manufacturing year and cumulative distance (km driven) relate to price?",
-        "<b>Multivariate Drivers:</b> Which technical specifications (engine displacement, peak power, torque) correlate strongest with price?",
+        "<b>Brand & Fuel Prevalence:</b> Which automotive brands and fuel types appear most frequently in the dataset?",
+        "<b>Selling Price Distribution:</b> How are car prices distributed, and what is the extent of skewness and luxury dispersion?",
+        "<b>Vehicle Age & Depreciation:</b> How does manufacturing year and cumulative distance (km driven) relate to resale price?",
+        "<b>Transmission Differentiation:</b> Do automatic and manual vehicles exhibit distinct price distributions?",
+        "<b>Multivariate Feature Association:</b> Which technical specifications (engine displacement, peak power, torque) correlate strongest with price?",
         "<b>Thermodynamic Trade-offs:</b> Does larger engine displacement penalize fuel economy across fuel types?",
         "<b>Outliers & Anomalies:</b> Where are the notable extreme values in odometer readings and price?",
     ]
     for q in core_qs:
         story.append(Paragraph(f"• {q}", BULLET))
 
-    story.append(Spacer(1, 0.4 * cm))
-    story.append(Paragraph("2. Dataset Overview", H1))
+    story.append(Spacer(1, 0.3 * cm))
+    story.append(Paragraph("3. Dataset Overview", H1))
     story.append(HRFlowable(width=CONTENT_W, thickness=1, color=colors.HexColor('#2D5986')))
-    story.append(Spacer(1, 0.2 * cm))
+    story.append(Spacer(1, 0.15 * cm))
     story.append(Paragraph(
-        f"The primary dataset contains <b>{raw_rows:,} raw records and 13 attributes</b> obtained from the CarDekho "
-        "repository on Kaggle. The features represent physical dimensions, mechanical performance, and transactional details.", BODY))
+        f"The primary dataset contains <b>{raw_rows:,} rows × 13 columns</b> sourced from CarDekho via Kaggle. "
+        "The attributes encompass physical dimensions, mechanical capacity, and commercial transaction details.", BODY))
 
     col_meta = [
-        ["Attribute", "Raw Type", "Clean Type", "Unit / Format", "Analytical Role"],
-        ["name", "object", "string", "Brand + Model", "Categorical identifier (32 brands)"],
-        ["year", "int64", "int64", "Calendar Year", "Temporal variable (1983-2020)"],
-        ["selling_price", "int64", "int64", "INR (₹)", "Primary target variable"],
-        ["km_driven", "int64", "int64", "Kilometres", "Continuous usage metric"],
-        ["fuel", "object", "category", "Diesel/Petrol/CNG/LPG", "Fuel segment"],
-        ["seller_type", "object", "category", "Individual/Dealer", "Market channel"],
-        ["transmission", "object", "category", "Manual/Automatic", "Drive system"],
-        ["owner", "object", "category", "First/Second/etc.", "Ownership history"],
-        ["mileage", "object", "float64", "kmpl / km/kg", "Fuel efficiency"],
-        ["engine", "object", "float64", "CC", "Displacement capacity"],
-        ["max_power", "object", "float64", "bhp", "Peak engine power output"],
-        ["torque", "object", "float64", "Nm", "Torsional force"],
-        ["seats", "float64", "int64", "Count", "Passenger capacity"],
+        ["Attribute", "Raw Type", "Clean Type", "Unit / Format", "Feature Description"],
+        ["name", "object", "string", "Brand + Model", "Full model designation (32 distinct brands)"],
+        ["year", "int64", "int64", "Calendar Year", "Vehicle manufacture year (1983-2020)"],
+        ["selling_price", "int64", "int64", "INR (₹)", "Target asking price in Indian Rupees"],
+        ["km_driven", "int64", "int64", "Kilometres", "Total cumulative odometer reading"],
+        ["fuel", "object", "category", "Diesel/Petrol/CNG/LPG", "Combustion fuel type category"],
+        ["seller_type", "object", "category", "Individual/Dealer", "Sales channel (Individual/Dealer/Trustmark)"],
+        ["transmission", "object", "category", "Manual/Automatic", "Gearbox transmission system"],
+        ["owner", "object", "category", "First/Second/etc.", "Previous ownership transfer hierarchy"],
+        ["mileage", "object", "float64", "kmpl / km/kg", "Fuel efficiency extracted from raw text"],
+        ["engine", "object", "float64", "CC", "Engine cubic displacement capacity"],
+        ["max_power", "object", "float64", "bhp", "Peak brake horsepower power output"],
+        ["torque", "object", "float64", "Nm", "Torsional force normalized to Newton-meters"],
+        ["seats", "float64", "int64", "Count", "Rated passenger seating capacity"],
     ]
     tbl_col = Table(col_meta, colWidths=[2.6*cm, 1.8*cm, 1.8*cm, 2.5*cm, CONTENT_W - 8.7*cm])
     tbl_col.setStyle(TableStyle([
@@ -1602,7 +1602,7 @@ def generate_pdf_report(df: pd.DataFrame) -> None:
     ]))
     story.append(tbl_col)
 
-    story.append(Spacer(1, 0.3 * cm))
+    story.append(Spacer(1, 0.25 * cm))
     story.append(Paragraph("<b>Representative Sample Records (Cleaned Dataset):</b>", H3))
 
     sample_rows = [
@@ -1628,18 +1628,18 @@ def generate_pdf_report(df: pd.DataFrame) -> None:
     story.append(PageBreak())
 
     # ==================================================================
-    # PAGE 3: DATA QUALITY, CLEANING DECISIONS & DESCRIPTIVE STATISTICS
+    # PAGE 3: 4. DATA QUALITY AND CLEANING & 5. DESCRIPTIVE ANALYSIS
     # ==================================================================
-    story.append(Paragraph("3. Data Quality Assessment & Cleaning Decisions", H1))
+    story.append(Paragraph("4. Data Quality and Cleaning", H1))
     story.append(HRFlowable(width=CONTENT_W, thickness=1, color=colors.HexColor('#2D5986')))
-    story.append(Spacer(1, 0.2 * cm))
+    story.append(Spacer(1, 0.15 * cm))
 
     cleaning_steps = [
-        f"<b>Deduplication:</b> Detected {dups_removed:,} exact duplicate listings across all columns. Removed to avoid statistical inflation (remaining: 6,926 unique rows).",
-        f"<b>Missing Value Handling:</b> 209 rows had all technical specifications (mileage, engine, power, torque, seats) concurrently missing. Because mechanical specifications were fundamental to bivariate/multivariate analysis, these unrecoverable rows were safely dropped.",
-        "<b>String Cleaning & Feature Extraction:</b> Numerical columns with embedded measurement suffixes (`kmpl`, `km/kg`, `CC`, `bhp`, `Nm`) were parsed via robust regular expressions into numeric variables.",
-        "<b>Torque Normalization:</b> Torque values reported in kilogram-meters (kgm) were converted to Newton-meters (Nm) using the gravitational constant (9.80665) only when the numeric reading was < 35.",
-        "<b>Brand Name Derivation:</b> Extracted the leading token from the vehicle name column, establishing 32 distinct manufacturing brands.",
+        f"<b>Duplicate Rows:</b> Identified {dups_removed:,} exact duplicate rows across all features. Deduplicated to prevent skewed distributions (retaining {cln_rows:,} clean rows).",
+        f"<b>Missing Values & Outlier Rows:</b> 209 rows had all technical specifications concurrently missing. These unrecoverable records were pruned.",
+        "<b>Type Corrections & Unit Extraction:</b> Measurement strings (`kmpl`, `km/kg`, `CC`, `bhp`, `Nm`) were extracted into pure numeric values.",
+        "<b>Torque Normalization:</b> Torque in kgm was normalized to Nm using ×9.80665 (applied when numeric value was < 35).",
+        "<b>Brand Name Derivation:</b> Extracted brand name from vehicle title, yielding 32 unique automotive brands.",
     ]
     for step in cleaning_steps:
         story.append(Paragraph(f"• {step}", BULLET))
@@ -1648,12 +1648,12 @@ def generate_pdf_report(df: pd.DataFrame) -> None:
 
     # Before / After Reconciliation Table
     recon_data = [
-        ["Audit Dimension", "Raw Dataset", "Cleaned Dataset", "Decision Justification"],
+        ["Audit Dimension", "Before Cleaning", "After Cleaning", "Cleaning Decision & Justification"],
         ["Total Rows", f"{raw_rows:,}", f"{cln_rows:,}", f"Retained {cln_rows/raw_rows*100:.1f}% valid records"],
-        ["Duplicate Rows", f"{dups_removed:,}", "0", "Duplicates bias regression and distributions"],
-        ["Missing Mileage / Engine", "221 nulls", "0 nulls", "Extracted and imputed from valid spec rows"],
-        ["Missing Max Power", "215 nulls", "0 nulls", "Extracted to float; invalid rows pruned"],
-        ["Derived Columns", "0", "+1 (brand)", "Enabled brand-level price segmentation"],
+        ["Duplicate Rows", f"{dups_removed:,}", "0", "Removed to eliminate artificial frequency peaks"],
+        ["Missing Mileage / Engine", "221 nulls", "0 nulls", "Extracted pure numeric values via regex"],
+        ["Missing Max Power / Torque", "215-222 nulls", "0 nulls", "Pruned unrecoverable null spec rows"],
+        ["Derived Columns", "0", "+1 (brand)", "Enabled brand segmentation and price benchmarking"],
     ]
     tbl_rec = Table(recon_data, colWidths=[3.2*cm, 2.2*cm, 2.4*cm, CONTENT_W - 7.8*cm])
     tbl_rec.setStyle(TableStyle([
@@ -1668,10 +1668,10 @@ def generate_pdf_report(df: pd.DataFrame) -> None:
     ]))
     story.append(tbl_rec)
 
-    story.append(Spacer(1, 0.4 * cm))
-    story.append(Paragraph("4. Descriptive Statistics & Distribution Analysis", H1))
+    story.append(Spacer(1, 0.35 * cm))
+    story.append(Paragraph("5. Descriptive Analysis", H1))
     story.append(HRFlowable(width=CONTENT_W, thickness=1, color=colors.HexColor('#2D5986')))
-    story.append(Spacer(1, 0.2 * cm))
+    story.append(Spacer(1, 0.15 * cm))
 
     num_summary = [
         ["Variable", "Count", "Mean", "Std Dev", "Min", "25%", "Median", "75%", "Max", "Skewness"],
@@ -1698,16 +1698,16 @@ def generate_pdf_report(df: pd.DataFrame) -> None:
 
     story.append(Spacer(1, 0.2 * cm))
     story.append(Paragraph(
-        "<b>Key Statistical Observations:</b> "
-        "(1) <i>Selling Price</i> exhibits substantial right-skewness (+5.57); median (₹420,000) is far more representative than mean (₹526,386). "
-        "(2) <i>Kilometres Driven</i> contains notable fleet vehicle outliers reaching 2.36M km. "
-        "(3) <i>Market Segments:</i> Diesel comprises 54.5% of listings, Petrol 44.3%, while Manual transmissions represent 91.4% of total inventory.", BODY))
+        "<b>Important Numerical & Categorical Observations:</b> "
+        "(1) <i>Selling Price:</i> Skewness (+5.57) shows a long upper tail of luxury cars pulling the mean (₹5.26L) above median (₹4.20L). "
+        "(2) <i>Fuel Segments:</i> Diesel comprises 54.5% (3,658 cars), Petrol 44.3% (2,975 cars), and CNG/LPG < 1.3%. "
+        "(3) <i>Transmission:</i> Manual accounts for 91.4% (6,142 cars); Automatic holds 8.6% (575 cars) but commands higher valuation.", BODY))
     story.append(PageBreak())
 
     # ==================================================================
-    # PAGE 4: VISUAL EDA (PART 1: UNIVARIATE CHARTS 1-4)
+    # PAGE 4: 6. VISUAL EDA (PART 1: CHARTS 1-4)
     # ==================================================================
-    story.append(Paragraph("5. Visual Exploratory Data Analysis (Charts 1 – 4)", H1))
+    story.append(Paragraph("6. Visual EDA (Charts 1 – 4)", H1))
     story.append(HRFlowable(width=CONTENT_W, thickness=1, color=colors.HexColor('#2D5986')))
     story.append(Spacer(1, 0.2 * cm))
 
@@ -1724,7 +1724,7 @@ def generate_pdf_report(df: pd.DataFrame) -> None:
         return items
 
     c1 = _chart_cell("univariate_1_selling_price.png", "Chart 1: Selling Price Distribution",
-                     "Dual-panel KDE and box plot reveal extreme right-skewness. Median is ₹4.20L; 75% of cars are under ₹6.50L. Luxury vehicles extend above ₹50L.")
+                     "Dual-panel KDE and box plot reveal extreme right-skewness (+5.57). Median is ₹4.20L; 75% of cars are under ₹6.50L. Luxury vehicles extend above ₹50L.")
     c2 = _chart_cell("univariate_2_fuel_type.png", "Chart 2: Fuel Type Share",
                      "Diesel leads with 54.5% (3,658 cars), followed by Petrol at 44.3% (2,975 cars). Alternative fuels (CNG: 53, LPG: 31) occupy less than 2% market share.")
     c3 = _chart_cell("univariate_3_transmission.png", "Chart 3: Transmission Breakdown",
@@ -1743,9 +1743,9 @@ def generate_pdf_report(df: pd.DataFrame) -> None:
     story.append(PageBreak())
 
     # ==================================================================
-    # PAGE 5: VISUAL EDA (PART 2: MULTIVARIATE & BIVARIATE CHARTS 5-8)
+    # PAGE 5: 6. VISUAL EDA (PART 2: CHARTS 5-8)
     # ==================================================================
-    story.append(Paragraph("5. Visual Exploratory Data Analysis (Charts 5 – 8)", H1))
+    story.append(Paragraph("6. Visual EDA (Charts 5 – 8)", H1))
     story.append(HRFlowable(width=CONTENT_W, thickness=1, color=colors.HexColor('#2D5986')))
     story.append(Spacer(1, 0.2 * cm))
 
@@ -1769,9 +1769,9 @@ def generate_pdf_report(df: pd.DataFrame) -> None:
     story.append(PageBreak())
 
     # ==================================================================
-    # PAGE 6: EVIDENCE-BASED FINDINGS & LIMITATIONS
+    # PAGE 6: 7. KEY FINDINGS (INSIGHTS & LIMITATIONS)
     # ==================================================================
-    story.append(Paragraph("6. Evidence-Based Analytical Findings", H1))
+    story.append(Paragraph("7. Key Findings", H1))
     story.append(HRFlowable(width=CONTENT_W, thickness=1, color=colors.HexColor('#2D5986')))
     story.append(Spacer(1, 0.2 * cm))
 
@@ -1818,7 +1818,7 @@ def generate_pdf_report(df: pd.DataFrame) -> None:
         story.append(Spacer(1, 0.15 * cm))
 
     story.append(Spacer(1, 0.2 * cm))
-    story.append(Paragraph("7. Dataset Limitations", H2))
+    story.append(Paragraph("Dataset Limitations", H2))
     story.append(HRFlowable(width=CONTENT_W, thickness=0.8, color=colors.HexColor('#CBD5E0')))
     story.append(Spacer(1, 0.15 * cm))
 
@@ -1834,13 +1834,13 @@ def generate_pdf_report(df: pd.DataFrame) -> None:
     story.append(PageBreak())
 
     # ==================================================================
-    # PAGE 7: CONCLUSION & FUTURE SCOPE
+    # PAGE 7: 8. CONCLUSION
     # ==================================================================
-    story.append(Paragraph("8. Conclusion & Future Analytical Scope", H1))
+    story.append(Paragraph("8. Conclusion", H1))
     story.append(HRFlowable(width=CONTENT_W, thickness=1, color=colors.HexColor('#2D5986')))
-    story.append(Spacer(1, 0.3 * cm))
+    story.append(Spacer(1, 0.25 * cm))
 
-    story.append(Paragraph("8.1 Summary of Analytical Learnings", H2))
+    story.append(Paragraph("8.1 Overall Learning", H2))
     story.append(Paragraph(
         "Through this exploratory assignment, the complete data lifecycle of a messy automotive dataset was executed. "
         "From an initial 8,128 records containing mixed string units and duplicate entries, a structured, cleaned dataset "
@@ -1849,7 +1849,7 @@ def generate_pdf_report(df: pd.DataFrame) -> None:
         "economy segmentation.", BODY))
 
     story.append(Spacer(1, 0.2 * cm))
-    story.append(Paragraph("8.2 Engineering Challenges & Solutions Encountered", H2))
+    story.append(Paragraph("8.2 Challenges Faced", H2))
     challenges_sol = [
         "<b>Non-Standard Measurement Units:</b> Columns like mileage combined `kmpl` and `km/kg`. Solved by regex isolation while retaining fuel type context.",
         "<b>Torque Multi-Unit Anomaly:</b> Raw torque strings contained Nm and kgm notations with arbitrary RPM delimiters. Resolved via conditional scaling factor.",
@@ -1859,7 +1859,7 @@ def generate_pdf_report(df: pd.DataFrame) -> None:
         story.append(Paragraph(f"• {c}", BULLET))
 
     story.append(Spacer(1, 0.2 * cm))
-    story.append(Paragraph("8.3 Potential Future Work & Extensions", H2))
+    story.append(Paragraph("8.3 Possible Future Analysis", H2))
     future_work = [
         "<b>Supervised Price Modeling:</b> Train tree-based ensemble models (Random Forest, XGBoost) using cleaned features to predict fair vehicle valuation.",
         "<b>Feature Engineering:</b> Compute annual depreciation rate ($Price / Age$) and average annual usage ($KM / Age$).",
@@ -1868,14 +1868,14 @@ def generate_pdf_report(df: pd.DataFrame) -> None:
     for fw in future_work:
         story.append(Paragraph(f"• {fw}", BULLET))
 
-    story.append(Spacer(1, 0.8 * cm))
+    story.append(Spacer(1, 0.6 * cm))
     story.append(HRFlowable(width=CONTENT_W, thickness=1, color=colors.HexColor('#2D5986')))
-    story.append(Spacer(1, 0.3 * cm))
+    story.append(Spacer(1, 0.25 * cm))
 
     # Submission Sign-off Box
     signoff_data = [
         [Paragraph("<b>Student Assignment Sign-Off</b>", H3), Paragraph(f"<b>Date:</b> {date.today().strftime('%d %B %Y')}", H3)],
-        [Paragraph("Student Name: <b>Nithin</b>", BODY), Paragraph("Course: <b>Automobile Exploratory Data Analysis</b>", BODY)],
+        [Paragraph("Student Name: <b>Nitin Gaikwad</b>", BODY), Paragraph("Course: <b>Automobile Exploratory Data Analysis</b>", BODY)],
         [Paragraph("Dataset Source: <b>CarDekho (Kaggle)</b>", BODY), Paragraph("Report Status: <b>Completed & Verified (7 Pages)</b>", BODY)],
     ]
     tbl_sign = Table(signoff_data, colWidths=[CONTENT_W * 0.5, CONTENT_W * 0.5])
