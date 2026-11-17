@@ -1486,7 +1486,7 @@ def generate_pdf_report(df: pd.DataFrame) -> None:
         canvas.setFont('Helvetica', 8)
         canvas.setFillColor(colors.HexColor('#718096'))
         canvas.drawCentredString(PAGE_W / 2, 0.9 * cm,
-                                 f"UNLOX Project: Cars Dataset EDA  |  Student: Nithin  |  Page {doc.page}")
+                                 f"UNLOX Project: Cars Dataset EDA  |  Student: Nanditha S N  |  Page {doc.page}")
         canvas.restoreState()
 
     doc = SimpleDocTemplate(
@@ -1518,7 +1518,7 @@ def generate_pdf_report(df: pd.DataFrame) -> None:
 
     cover_table_data = [
         [Paragraph("<b>Project Title:</b>", BODY), Paragraph("Exploratory Data Analysis on a Cars Dataset", BODY)],
-        [Paragraph("<b>Student Name:</b>", BODY), Paragraph("Nitin Gaikwad", BODY)],
+        [Paragraph("<b>Student Name:</b>", BODY), Paragraph("Nanditha S N", BODY)],
         [Paragraph("<b>Batch:</b>", BODY), Paragraph("Data Analytics / Data Science", BODY)],
         [Paragraph("<b>Submission Date:</b>", BODY), Paragraph(date.today().strftime("%d %B %Y"), BODY)],
         [Paragraph("<b>Project Goal:</b>", BODY), Paragraph("Perform comprehensive EDA, improve data quality, identify patterns & outliers, and communicate useful insights", BODY)],
@@ -1875,7 +1875,7 @@ def generate_pdf_report(df: pd.DataFrame) -> None:
     # Submission Sign-off Box
     signoff_data = [
         [Paragraph("<b>Student Assignment Sign-Off</b>", H3), Paragraph(f"<b>Date:</b> {date.today().strftime('%d %B %Y')}", H3)],
-        [Paragraph("Student Name: <b>Nitin Gaikwad</b>", BODY), Paragraph("Course: <b>Automobile Exploratory Data Analysis</b>", BODY)],
+        [Paragraph("Student Name: <b>Nanditha S N</b>", BODY), Paragraph("Course: <b>Automobile Exploratory Data Analysis</b>", BODY)],
         [Paragraph("Dataset Source: <b>CarDekho (Kaggle)</b>", BODY), Paragraph("Report Status: <b>Completed & Verified (7 Pages)</b>", BODY)],
     ]
     tbl_sign = Table(signoff_data, colWidths=[CONTENT_W * 0.5, CONTENT_W * 0.5])

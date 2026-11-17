@@ -1,8 +1,8 @@
 # AUTOMOBILE DATA SET — Exploratory Data Analysis (EDA Minor Project)
 
-**Student Name:** Nitin Gaikwad  
+**Student Name:** Nanditha S N  
 **Course Assignment:** UNLOX Student Project Assignment — Exploratory Data Analysis on a Cars Dataset  
-**Repository:** [https://github.com/Nitingaikward/AUTOMOBILE-DATA-SET](https://github.com/Nitingaikward/AUTOMOBILE-DATA-SET) (or [student](https://github.com/Nitingaikward/student))  
+**Repository:** [https://github.com/Nitingaikward/Automobile-Data-Analysis-](https://github.com/Nitingaikward/Automobile-Data-Analysis-)  
 **Dataset Source:** [Kaggle: Car Details V3 (CarDekho Vehicle Dataset)](https://www.kaggle.com/datasets/nehalbirla/vehicle-dataset-from-cardekho)  
 
 ---
